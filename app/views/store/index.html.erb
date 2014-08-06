@@ -2,6 +2,14 @@
 <p id="notice"><%= notice %>></p>
 <% end %>
 
+<div class="counter">
+<% if session[:counter] == 1 %>
+<p>It's your first visit today, welcome!</p>
+<% else %>
+<p>This page has been accessed <%= session[:counter] %> times today.</p>
+<% end %>
+</div>
+
 <h1>Your Pragmatic Catalog</h1>
 
 <% cache ['store', Product.latest] do %>
