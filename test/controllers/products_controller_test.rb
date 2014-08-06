@@ -17,6 +17,14 @@ class ProductsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:products)
   end
 
+  def test_should_get_index
+    get :index
+    assert assigns['products'], "products ivar wasn't assigned"
+    assert_select 'title', 'Depot'
+    assert_select '#side li', 4
+    assert_select '#side .time', 1
+  end
+
   test "should get new" do
     get :new
     assert_response :success
